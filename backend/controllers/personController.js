@@ -1,15 +1,42 @@
-const PersonController = {};
+const Person = require('../models/person');
 
 
-PersonController.getPerson = (req, res) => {
-		res.json({
-			status : 'Personas'
-		});
-}
+const personController = {};
+
+
+
+personController.getPersons = async(req, res) => {
+	const persons = await Person.find();
+
+	res.json(persons);
+		// res.json({
+		// 	status : 'personas'
+		// })
+
+}	
+
+personController.getPerson = function(){
 	
+}
 
-PersonController.createPerson = function(){
+
+personController.createPerson = async(req, res) => {
+
+	const person = new Person(req.body);
+	await person.save();
+	console.log(person);
+	res.json({
+		"status" : "saved"
+	})
 	
 }
 
-module.exports = PersonController;
+personController.editPerson = function(){
+	
+}
+
+personController.deletePerson = function(){
+	
+}
+
+module.exports = personController;
