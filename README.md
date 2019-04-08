@@ -1,2 +1,0 @@
-# Ekoomedia
-prueba tecnica
