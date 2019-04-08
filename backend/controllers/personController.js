@@ -15,8 +15,9 @@ personController.getPersons = async(req, res) => {
 
 }	
 
-personController.getPerson = function(){
-	
+personController.getPerson = async(req, res) => {
+	const persons = await Person.findById(req.params.id);
+	res.json(persons);
 }
 
 
@@ -31,12 +32,21 @@ personController.createPerson = async(req, res) => {
 	
 }
 
-personController.editPerson = function(){
-	
+personController.editPerson = async(req, res) => {
+	const { id } = req.params;
+	const person = {
+		name : req.body.name,
+		email : req.body.email,
+		celphone :  req.bodycelphone,
+		age : req.body.age
+	}
+	const persons = await Person.findByIdAndUpdate(id, {$set: person}, {new: true});
+	res.json({status:'person update'});
 }
 
-personController.deletePerson = function(){
-	
+personController.deletePerson = async(req, res) => {
+	const persons = await Person.findByIdAndRemove(req.params.id);
+	res.json({sattus:'Delete person'});
 }
 
 module.exports = personController;
