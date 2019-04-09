@@ -4,7 +4,26 @@
 			<div class="card">
 				<div class="card-content">
 					<form #personForm=ngForm (ngSubmit)="addPerson(personForm)">
-						
+						<div class="row">
+							<div class="input-field col s12">
+								 <input type="text" name="name" #name="ngModel" [(ngModel)]="personService.selectedPerson.name" placeholder="Ingresar nombre">	
+							</div>
+							<div class="input-field col s12">
+								 <input type="text" name="email" #email="ngModel" [(ngModel)]="personService.selectedPerson.email" placeholder="Ingresar email">	
+							</div>
+							<div class="input-field col s12">
+								 <input type="text" name="celphone" #celphone="ngModel" [(ngModel)]="personService.selectedPerson.celphone" placeholder="Ingresar numero de contacto">	
+							</div>
+							<div class="input-field col s12">
+								 <input type="text" name="edad" #edad="ngModel" [(ngModel)]="personService.selectedPerson.edad" placeholder="Ingresar la edad">	
+							</div>
+							<div class="card-action">
+								<div class="input field col s12">
+									<button class="btn" (click)="resetForm(personForm)">Limpiar</button>
+									<button class="btn right">Guardar</button>
+								</div>								
+							</div>
+						</div>
 					</form>
 				</div>
 			</div>
