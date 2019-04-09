@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PersonService } from '../../services/person.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-persons',
@@ -23,7 +24,7 @@ export class PersonsComponent implements OnInit {
   resetForm(form?: NgForm ){
   	if(form){
   		form.reset();
-  		this.personService.selectedPerson = new Person();
+  		this.personService.selectedPerson = 0;
   	}
   }
 }

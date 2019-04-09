@@ -10,7 +10,7 @@ export class PersonService {
 
 selectedPerson: Person;
 person: Person[];
-readonly URL_API = 'http://localhost:3000/';
+readonly URL_API = 'http://localhost:8000/api/persons';
 
   constructor(private http: HttpClient) { 
   	this.selectedPerson = new Person();
@@ -28,7 +28,7 @@ readonly URL_API = 'http://localhost:3000/';
   	return this.http.put(this.URL_API+'/${person._id}', person);
   }
 
-  deletePerson(id:string){
+  deletePerson(id: string){
   	return this.http.delete(this.URL_API + '${_id');
   }
 }
