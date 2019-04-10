@@ -21,16 +21,16 @@ export class PersonsComponent implements OnInit {
   resetForm(form?: NgForm){
   	if(form){
   		form.reset();
-  		this.personService.selectedPerson;
+  		this.personService.selectedPerson = new Person;
   	}
   }
 
   addPerson(form: NgForm){
   	this.personService.postPerson(form.value)
   		.subscribe(res => {
-  		  	this.resetForm(form);
+  		  this.resetForm(form);
+        this.getPersons();
   			M.toast({html: 'Se ha registrado satisfactoriamente'});
-  			this.getPersons();
   		})
   }
 
