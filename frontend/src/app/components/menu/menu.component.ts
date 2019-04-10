@@ -8,8 +8,12 @@ import { MenuService } from '../../services/menu.service'
   providers: [MenuService]
 })
 export class MenuComponent implements OnInit {
+ title: string;
+  constructor(private menuService: MenuService) { 
 
-  constructor(private menuService: MenuService) { }
+  	this.title = "Airbus";
+
+  }
 
   ngOnInit() {
   	this.getMenu();
@@ -21,5 +25,10 @@ export class MenuComponent implements OnInit {
   			this.menuService.menus = res as Menu[];
   			console.log(res);
   		})
+  }
+
+  onName(menu: Menu){
+  	this.title = menu;
+		console.log(menu);
   }
 }
