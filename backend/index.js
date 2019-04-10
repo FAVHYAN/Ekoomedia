@@ -19,7 +19,7 @@ app.use(cors({origin: 'http://localhost:4200'}));
 
 //routes
 
-app.use('/api/persons',require('./routes/personRoutes'));
+app.use('/person',require('./routes/personRoutes'));
 
 //starting the server
 

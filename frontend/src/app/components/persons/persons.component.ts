@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { PersonService } from '../../services/person.service';
+import { PersonService } from '../../services/person.service'
 import { NgForm } from '@angular/forms';
+
+declare var M: any;
 
 @Component({
   selector: 'app-persons',
@@ -14,17 +16,20 @@ export class PersonsComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  resetForm(form?: NgForm){
+  	if(form){
+  		form.reset();
+  		this.personService.selectedPerson;
+  	}
+  }
+
   addPerson(form: NgForm){
   	this.personService.postPerson(form.value)
-  		.subscribe(res=>{
-  			console.log(res);
+  		.subscribe(res => {
+  		  	this.resetForm(form);
   		})
 
   }
-  resetForm(form?: NgForm ){
-  	if(form){
-  		form.reset();
-  		this.personService.selectedPerson = 0;
-  	}
-  }
+
 }
