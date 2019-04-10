@@ -21,7 +21,7 @@ export class PersonsComponent implements OnInit {
   resetForm(form?: NgForm){
   	if(form){
   		form.reset();
-  		this.personService.selectedPerson = new Person;
+  		this.personService.selectedPerson;
   	}
   }
 
