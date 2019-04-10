@@ -15,6 +15,7 @@ export class PersonsComponent implements OnInit {
   constructor(private personService: PersonService) { }
 
   ngOnInit() {
+  	this.getPersons();
   }
 
   resetForm(form?: NgForm){
@@ -28,8 +29,16 @@ export class PersonsComponent implements OnInit {
   	this.personService.postPerson(form.value)
   		.subscribe(res => {
   		  	this.resetForm(form);
+  			M.toast({html: 'Se ha registrado satisfactoriamente'});
+  			this.getPersons();
   		})
-
   }
 
+  getPersons(){
+  	this.personService.getPersons()
+  		.subscribe(res => {
+  			this.personService.persons = res as Person[];
+  			console.log(res);
+  		})
+  }
 }
