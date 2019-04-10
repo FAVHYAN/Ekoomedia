@@ -27,7 +27,7 @@ export class MenuComponent implements OnInit {
   		})
   }
 
-  onName(menu: Menu){
+  onName(menu){
   	this.title = menu;
 		console.log(menu);
   }

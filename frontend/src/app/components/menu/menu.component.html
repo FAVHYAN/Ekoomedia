@@ -9,7 +9,7 @@
 </nav>
 
 <ul class="sidenav" id="mobile-demo" *ngFor="let menu of menuService.menus">
-	<li><a href="#">{{menu.label}}</a></li>
+	<li (click)="onName(menu.label)"><a href="#">{{menu.label}}</a></li>
 </ul>
      
 <div class="container">
