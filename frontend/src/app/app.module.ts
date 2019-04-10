@@ -8,12 +8,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PersonsComponent } from './components/persons/persons.component';
 import { MenuComponent } from './components/menu/menu.component';
+import { RangoEdad } from './validate.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     PersonsComponent,
-    MenuComponent
+    MenuComponent,
+    RangoEdad
   ],
   imports: [
     BrowserModule,

@@ -18,8 +18,12 @@
 							</div>
 							
 							<div class="input-field col s12">
-								<input type="text" name="age" #age="ngModel" [(ngModel)] = "personService.selectedPerson.age"  placeholder="Ingresar edad">
+								<input type="text" name="age" #age="ngModel" [(ngModel)] = "personService.selectedPerson.age"  placeholder="Ingresar edad" rango-edad>
+								<div *ngIf="age.errors" class="red">
+									La edad no es permitida.
+								</div>
 							</div>
+
 							<div class="card-action">
 								<div class="input-field col s12">
 									<button class="btn" (click)="resetForm(personForm)">Limpiar</button>
@@ -51,3 +55,4 @@
 		</div>
 	</div>
 </div>
+
